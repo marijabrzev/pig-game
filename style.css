@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', monospace;
+  font-weight: 400;
+  height: 100vh;
+  color: #ffffff;
+  background-image: linear-gradient(to top left, #fffffff3 0%, #fffffff3 100%);
+  align-items: center;
+  justify-content: center;
+  display: block;
+}
+
+/* LAYOUT */
+main {
+  position: relative;
+  margin: 0 auto;
+  width: fit-content;
+  width: 130rem;
+  height: 65rem;
+  background-color: rgb(138, 156, 222);
+  backdrop-filter: blur(200px);
+  filter: blur();
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  overflow: hidden;
+  display: flex;
+}
+
+.player {
+  flex: 50%;
+  padding: 9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.75s;
+}
+/* RULES MODAL */
+.show-modal {
+  position: center;
+  font-size: 2rem;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  padding: 1.75rem 3rem;
+  margin: 1rem 66rem;
+  border: none;
+  background-color: #fff;
+  color: #121111;
+  border-radius: 50rem;
+  cursor: pointer;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: black;
+}
+
+p {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: black;
+}
+
+/* -------------------------- */
+/* CLASSES TO MAKE MODAL WORK */
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+
+  background-color: white;
+  padding: 5rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+/* ELEMENTS */
+.name {
+  position: relative;
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.score {
+  font-size: 10rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: auto;
+}
+
+.player--active {
+  background-color: rgba(24, 51, 101, 0.938);
+  /*rgba(233, 218, 87, 0.938);*/
+}
+.player--active .name {
+  font-weight: 550;
+  font-size: 4rem;
+}
+.player--active .score {
+  font-weight: 500;
+}
+
+.player--active .current {
+  opacity: 1;
+}
+
+.current {
+  background-color: #b43232;
+  opacity: 0.8;
+  border-radius: 9px;
+  color: #fff;
+  width: 65%;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.75s;
+}
+
+.current-label {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-weight: 550;
+  font-size: 3rem;
+  color: #ddd;
+}
+
+.current-score {
+  font-size: 4rem;
+  font-weight: 550;
+  color: white;
+}
+
+/* ABSOLUTE POSITIONED ELEMENTS */
+.btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #444;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+
+  padding: 0.7rem 2.5rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+}
+
+.btn::first-letter {
+  font-size: 2.4rem;
+  display: inline-block;
+  margin-right: 0.7rem;
+}
+
+.btn--new {
+  top: 4rem;
+  font-weight: 600;
+}
+.btn--roll {
+  top: 39.3rem;
+  font-weight: 600;
+}
+.btn--hold {
+  top: 46.1rem;
+  font-weight: 600;
+}
+
+.btn:active {
+  transform: translate(-50%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.dice {
+  position: absolute;
+  left: 50%;
+  top: 16.5rem;
+  transform: translateX(-50%);
+  height: 13rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+
+.player--winner {
+  background-color: #13843c;
+}
+
+.player--winner .name {
+  font-weight: 700;
+  color: #fdfdfd;
+}
+
+.hidden {
+  display: none;
+}
